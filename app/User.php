@@ -35,5 +35,16 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'last_login_at' => 'datetime',
     ];
+
+    //
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function (User $user){
+            $user->last_login_at = now();
+        });
+    }
 }
