@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Rules\AdultRule;
+use App\Rules\PerfRule;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -53,6 +55,10 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'sex' => ['required', 'in:F,M'],
+            'birthday' => ['required', 'date', new AdultRule],
+            'perf' => ['required', 'string', new PerfRule],
+            'comment' => ['nullable', 'string', 'max:1000']
         ]);
     }
 
@@ -68,6 +74,10 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'sex' => $data['sex'],
+            'birthday' => $data['birthday'],
+            'perf' => $data['perf'],
+            'comment' => $data['comment'],
         ]);
     }
 }

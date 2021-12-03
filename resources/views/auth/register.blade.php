@@ -61,6 +61,69 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="sex" class="col-md-4 col-form-label text-md-right">性別</label>
+
+                            <div class="col-md-6">
+                                <div class="form-check form-check-inline @error('sex') is-invalid @enderror">
+                                    <input id="sex-m" type="radio" name="sex" value="M" @if(old('sex') === 'M') checked @endif><label for="sex-m">男性</label>
+                                    <input id="sex-f" type="radio" name="sex" value="F" @if(old('sex') === 'F') checked @endif><label for="sex-f">女性</label>
+                                </div>
+
+                                @error('sex')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="birthday" class="col-md-4 col-form-label text-md-right">誕生日</label>
+
+                            <div class="col-md-6">
+                                <input type="date" id="birthday" name="birthday" class="form-control  @error('birthday') is-invalid @enderror" value="{{ old('birthday') }}" required>
+
+                                @error('birthday')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="perf" class="col-md-4 col-form-label text-md-right">住まい</label>
+
+                            <div class="col-md-6">
+                                <select name="perf" id="perf" class="form-control @error('perf') is-invalid @enderror" required>
+                                    @foreach (config('perf') as $index => $name)
+                                        <option value="{{ $index }}" @if(old('perf') === $index) selected @endif>{{ $name }}</option>    
+                                    @endforeach
+                                </select>                                
+
+                                @error('perf')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="comment" class="col-md-4 col-form-label text-md-right">コメント</label>
+ 
+                            <div class="col-md-6">
+                                <textarea name="comment" id="comment" cols="30" rows="5" class="form-control @error('comment') is-invalid @enderror">{{ old('comment') }}</textarea>
+
+                                @error('comment')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
