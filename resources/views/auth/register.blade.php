@@ -111,7 +111,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="comment" class="col-md-4 col-form-label text-md-right">コメント</label>
+                            <label for="comment" class="col-md-4 col-form-label text-md-right">自己紹介</label>
  
                             <div class="col-md-6">
                                 <textarea name="comment" id="comment" cols="30" rows="5" class="form-control @error('comment') is-invalid @enderror">{{ old('comment') }}</textarea>

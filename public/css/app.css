@@ -10962,3 +10962,39 @@ a.text-dark:focus {
   }
 }
 
+.profile {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.profile .image-wrap {
+  padding-left: 16px;
+  margin-right: 8px;
+}
+
+.profile .image-wrap .image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  position: relative;
+  margin-bottom: 8px;
+  background-size: cover;
+  background-position: 50% 0;
+}
+
+.profile .info-wrap {
+  flex: 1;
+}
+
+.profile .info-wrap .detail {
+  list-style: none;
+}
+
+.profile .info-wrap .detail .item {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 4px;
+  font-size: 1.6em;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
