@@ -46,7 +46,13 @@
 </div>
 @endsection
 @section('footer')
+@if($user->id === Auth::id())
+<footer class="footer fixed-bottom">
+    <a href="{{ route('profile.edit') }}" class="btn btn-primary btn-block">プロフィール編集</a>
+</footer>
+@else
 <footer class="footer fixed-bottom">
     <a href="#" class="btn btn-primary btn-block">メールを送る</a>
 </footer>
+@endif
 @endsection
