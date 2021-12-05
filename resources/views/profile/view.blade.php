@@ -17,6 +17,9 @@
                     <div class="profile">
                         <div class="image-wrap">
                             <img src="{{ route('media.download', ['path'=>$user->image]) }}"  class="image">
+                            @if($user->id === Auth::id())
+                                <a href="{{ route('profile.upload_view') }}" class="btn btn-primary btn-block">画像登録</a>
+                            @endif
                         </div>
                         <div class="info-wrap">
                             <ul class="detail">

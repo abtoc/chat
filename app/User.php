@@ -5,6 +5,7 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
@@ -107,6 +108,17 @@ class User extends Authenticatable implements MustVerifyEmail
         });
         self::updating(function (User $user){
             $user->updateAge();
+            if($user->isDirty('image')){
+                $image = $user->getOriginal('image');
+                if($image !== 'common/thumbnail_no_image.png'){
+                    Storage::delete($image);
+                }
+            }
+        });
+        self::deleting(function (User $user){
+            if($user->image !== 'common/thumbnail_no_image.png'){
+                Storage::delete($this->image);
+            }
         });
     }
 }

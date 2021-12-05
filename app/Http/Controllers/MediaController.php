@@ -9,7 +9,6 @@ class MediaController extends Controller
 {
     public function download($path)
     {
-        $path = 'img/'.$path;
         if(!Storage::exists($path)){
             return abort(404);
         }
