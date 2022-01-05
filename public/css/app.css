@@ -10998,3 +10998,48 @@ a.text-dark:focus {
   word-break: break-all;
 }
 
+.profile-list {
+  width: 100%;
+}
+
+.profile-list .image {
+  display: block;
+  width: 48px;
+  float: left;
+  line-height: 0;
+  text-align: center;
+}
+
+.profile-list .right {
+  padding-left: 58px;
+  display: block;
+}
+
+.profile-list .right .name {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 24px;
+  padding-right: 32px;
+  margin-bottom: 4px;
+}
+
+.profile-list .right .info {
+  height: 30px;
+  margin-top: 2px;
+  padding-left: 14px;
+  overflow: hidden;
+  vertical-align: middle;
+  font-size: 1.3rem;
+  line-height: 15px;
+}
+
+.profile-list .right .comment {
+  background-color: #FFEDD7;
+  width: 100%;
+  word-wrap: break-word;
+  padding: 4px;
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+

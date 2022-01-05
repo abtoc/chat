@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
     Route::post('/profile/update', 'ProfileController@update')->name('profile.update');
     Route::get('/profile/upload', 'ProfileController@upload_view')->name('profile.upload_view');
     Route::post('/profile/upload', 'ProfileController@upload')->name('profile.upload');
+    Route::get('/profile/list', 'ProfileController@list')->name('profile.list');
     Route::get('/profile/{user}', 'ProfileController@view')->name('profile.view');
 
     Route::get('/img/{path}', 'MediaController@download')->where('path', '.*')->name('media.download');

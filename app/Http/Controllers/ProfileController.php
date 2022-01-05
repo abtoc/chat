@@ -11,6 +11,13 @@ use Illuminate\Support\Str;
 
 class ProfileController extends Controller
 {
+    public function list()
+    {
+        $users = User::where('id', '<>', Auth::id());
+
+        $users = $users->get();
+        return view('profile.list', ['users' => $users]);
+    }
     public function view_own()
     {
         return view('profile.view', ['user' => Auth::user()]);
